@@ -1,0 +1,19 @@
+{
+  "name": "pixelant/pxa-fal-file-list",
+  "description": "Show folder files list.",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0+",
+  "require": {
+    "typo3/cms-core": "^9.5",
+    "php": ">=7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pixelant\\PxaFalFileList\\": "Classes/"
+    }
+  },
+  "replace": {
+    "pxa_fal_file_list": "self.version",
+    "typo3-ter/pxa-fal-file-list": "self.version"
+  }
+}
