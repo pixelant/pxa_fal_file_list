@@ -1,0 +1,32 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:pxa_fal_file_list/Resources/Private/Language/locallang_be.xlf:flexform.tab</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.directory>
+						<label>LLL:EXT:pxa_fal_file_list/Resources/Private/Language/locallang_be.xlf:flexform.directory</label>
+						<config>
+							<type>input</type>
+							<size>30</size>
+							<eval>trim,required</eval>
+							<renderType>inputLink</renderType>
+							<fieldControl>
+								<linkPopup>
+									<options>
+										<blindLinkOptions>mail,page,url,file</blindLinkOptions>
+										<blindLinkFields>class,params,target,title</blindLinkFields>
+									</options>
+								</linkPopup>
+							</fieldControl>
+							<softref>typolink</softref>
+						</config>
+					</settings.directory>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>
