@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:pxa="http://typo3.org/ns/Pixelant/PxaFalFileList/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:if condition="{folder}">
+        <f:then>
+            <f:if condition="{files -> f:count()} > 0">
+                <f:then>
+                    <ul>
+                        <f:for as="file" each="{files}">
+                            <li>
+                                <f:link.typolink parameter="file:{file.uid}">
+                                    <f:if condition="{file.properties.title}">
+                                        <f:then>{file.properties.title}</f:then>
+                                        <f:else if="{file.properties.download_name}">{file.properties.download_name}</f:else>
+                                        <f:else>{file.properties.name}</f:else>
+                                    </f:if>
+                                </f:link.typolink>
+
+                                <f:if condition="{pxa:isFileNew(file: file, newDuration: settings.new_duration)}">
+                                    File is new marker
+                                </f:if>
+                            </li>
+                        </f:for>
+                    </ul>
+                </f:then>
+                <f:else>
+                    <p><f:translate key="no_files" /></p>
+                </f:else>
+            </f:if>
+        </f:then>
+        <f:else>
+            <p><f:translate key="folder_not_found" /> ("{settings.folder}")</p>
+        </f:else>
+    </f:if>
+</f:section>
+</html>

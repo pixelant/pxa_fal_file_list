@@ -4,7 +4,12 @@
 		  product-name="pxa_fal_file_list">
 		<header/>
 		<body>
-
+			<trans-unit id="folder_not_found">
+			    <source>Folder was not found</source>
+			</trans-unit>
+			<trans-unit id="no_files">
+			    <source>Folder is empty</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -11,8 +11,32 @@
 			<trans-unit id="flexform.tab">
 			    <source>Settings</source>
 			</trans-unit>
-			<trans-unit id="flexform.directory">
-			    <source>Directory</source>
+			<trans-unit id="flexform.folder">
+			    <source>Folder</source>
+			</trans-unit>
+			<trans-unit id="flexform.order_by">
+			    <source>Sort by</source>
+			</trans-unit>
+			<trans-unit id="flexform.order_by.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="flexform.order_by.tstamp">
+			    <source>Last modified</source>
+			</trans-unit>
+			<trans-unit id="flexform.order_by.size">
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="flexform.order_direction">
+			    <source>Sort direction</source>
+			</trans-unit>
+			<trans-unit id="flexform.order_direction.asc">
+			    <source>Ascending</source>
+			</trans-unit>
+			<trans-unit id="flexform.order_direction.desc">
+				<source>Descending</source>
+			</trans-unit>
+			<trans-unit id="flexform.new_duration">
+			    <source>File is new for amount of days</source>
 			</trans-unit>
 		</body>
 	</file>
