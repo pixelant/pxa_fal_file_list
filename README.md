@@ -4,8 +4,14 @@ Show folder files list on FE
 
 Simple extension that allow to choose folder in plugin settings and list files on FE.
 
-Plugin settings allow to set:
+## How to use it
+- Install extension in extension manager
+- Include static TS template
+- Insert plugin "Files list" on content page
+ 
+## Plugin settings
 
+- Folder
 - Sorting field
 - Sorting direction
 - New for duration of days (How many days file is marked as new)
