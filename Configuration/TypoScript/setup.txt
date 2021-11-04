@@ -1,17 +1,20 @@
 plugin.tx_pxafalfilelist {
-    view {
-        templateRootPaths {
-            10 = EXT:pxa_fal_file_list/Resources/Private/Templates/
-            20 = {$plugin.tx_pxafalfilelist.view.templateRootPath}
-        }
-        partialRootPaths {
-            10 = EXT:pxa_fal_file_list/Resources/Private/Partials/
-            20 = {$plugin.tx_pxafalfilelist.view.partialRootPath}
-        }
-
-        layoutRootPaths {
-            10 = EXT:pxa_fal_file_list/Resources/Private/Layouts/
-            20 = {$plugin.tx_pxafalfilelist.view.layoutRootPath}
-        }
+  view {
+    templateRootPaths {
+      10 = EXT:pxa_fal_file_list/Resources/Private/Templates/
+      20 = {$plugin.tx_pxafalfilelist.view.templateRootPath}
     }
+    partialRootPaths {
+      10 = EXT:pxa_fal_file_list/Resources/Private/Partials/
+      20 = {$plugin.tx_pxafalfilelist.view.partialRootPath}
+    }
+    layoutRootPaths {
+      10 = EXT:pxa_fal_file_list/Resources/Private/Layouts/
+      20 = {$plugin.tx_pxafalfilelist.view.layoutRootPath}
+    }
+  }
+  settings {
+    # Requires extension fal_securedownload
+    enableFileGroupCheck = 0
+  }
 }
