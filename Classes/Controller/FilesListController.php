@@ -6,6 +6,7 @@ namespace Pixelant\PxaFalFileList\Controller;
 use TYPO3\CMS\Core\LinkHandling\LinkService;
 use TYPO3\CMS\Core\Resource\Exception\FolderDoesNotExistException;
 use TYPO3\CMS\Core\Resource\Folder;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\Service\TypoLinkCodecService;
@@ -44,9 +45,11 @@ class FilesListController extends ActionController
                 $this->settings['order_direction'] === 'desc'
             );
 
-            $this->view->assign('files', $files);
+            $files = $this->filterFilesByFileMetadataGroupAccess($files);
 
+            $this->view->assign('files', $files);
         }
+
         $this->view->assign('folder', $this->folder);
     }
 
@@ -78,5 +81,32 @@ class FilesListController extends ActionController
         }
 
         return null;
+    }
+
+    /**
+     * Filter files by file metadata fe_group if enabled and extension fal_securedownload.
+     *
+     * @param array $files
+     * @return \TYPO3\CMS\Core\Resource\File[]
+     */
+    protected function filterFilesByFileMetadataGroupAccess(array $files): array
+    {
+        if ($this->settings['enableFileGroupCheck'] === '1' &&
+            ExtensionManagementUtility::isLoaded('fal_securedownload')
+        ) {
+            $falSdPermissionService = GeneralUtility::makeInstance(
+                \BeechIt\FalSecuredownload\Security\CheckPermissions::class
+            );
+
+            foreach ($files as $file) {
+                if ($falSdPermissionService->checkFileAccessForCurrentFeUser($file)) {
+                    $checkedFiles[] = $file;
+                }
+            }
+
+            $files = $checkedFiles;
+        }
+
+        return $files ?? [];
     }
 }
